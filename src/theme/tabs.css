@@ -1,0 +1,15 @@
+ion-tab-button,
+ion-icon {
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+ion-icon {
+    padding: 15px;
+    border-radius: 50%;
+}
+
+ion-tab-button.tab-selected ion-icon {
+    color: white;
+    background-color: var(--ion-color-primary);
+}
+
