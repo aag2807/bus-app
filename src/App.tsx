@@ -1,10 +1,10 @@
 import {Redirect, Route} from 'react-router-dom';
-import {IonApp, IonIcon, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact,IonLabel} from '@ionic/react';
+import {IonApp, IonIcon, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact} from '@ionic/react';
 import {IonReactRouter} from '@ionic/react-router';
 import {bus, home, person} from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import HomePage from './pages/HomePage';
+import Tickets from './pages/Tickets';
+import UserOptions from './pages/UserOptions';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -35,22 +35,31 @@ import '@ionic/react/css/palettes/high-contrast.css';
 /* Theme variables */
 import './theme/variables.css';
 import './theme/tabs.css';
+import './theme/overrides.css';
+import {useSnapshot} from "valtio";
+import {GlobalStore, IGlobalStore} from "./state/global.store";
+import LoadingOverlay from "./components/LoadingOverlay";
 
 setupIonicReact();
 
-const App: React.FC = () => (
-	<IonApp>
+const App: React.FC = () =>
+{
+	const globalStore = useSnapshot<IGlobalStore>( GlobalStore );
+
+	return (
+		<IonApp className={"relative z-[1]"}>
+			{globalStore.isLoading && <LoadingOverlay/>}
 			<IonReactRouter>
 				<IonTabs>
 					<IonRouterOutlet>
 						<Route exact path="/tab1">
-							<Tab1/>
+							<HomePage/>
 						</Route>
 						<Route exact path="/tab2">
-							<Tab2/>
+							<Tickets/>
 						</Route>
 						<Route path="/tab3">
-							<Tab3/>
+							<UserOptions/>
 						</Route>
 						<Route exact path="/">
 							<Redirect to="/tab1"/>
@@ -70,7 +79,8 @@ const App: React.FC = () => (
 					</IonTabBar>
 				</IonTabs>
 			</IonReactRouter>
-	</IonApp>
-);
+		</IonApp>
+	);
+}
 
 export default App;

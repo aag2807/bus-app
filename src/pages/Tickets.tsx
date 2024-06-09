@@ -1,7 +1,7 @@
 import {IonContent, IonPage} from '@ionic/react';
-import './Tab2.css';
+import './Tickets.css';
 
-const Tab2: React.FC = () => {
+const Tickets: React.FC = () => {
   return (
     <IonPage>
         <IonContent fullscreen>
@@ -11,4 +11,4 @@ const Tab2: React.FC = () => {
   );
 };
 
-export default Tab2;
+export default Tickets;

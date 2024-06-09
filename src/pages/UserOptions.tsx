@@ -1,7 +1,6 @@
 import {IonContent, IonPage} from '@ionic/react';
-import './Tab3.css';
 
-const Tab3: React.FC = () =>
+const UserOptions: React.FC = () =>
 {
 	return (
 		<IonPage>
@@ -12,4 +11,4 @@ const Tab3: React.FC = () =>
 	);
 };
 
-export default Tab3;
+export default UserOptions;
