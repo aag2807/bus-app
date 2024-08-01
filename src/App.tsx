@@ -1,6 +1,6 @@
 import {Redirect, Route} from 'react-router-dom';
 import {IonApp, IonIcon, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact} from '@ionic/react';
-import {IonReactRouter} from '@ionic/react-router';
+import {IonReactHashRouter, IonReactRouter} from '@ionic/react-router';
 import {bus, home, person} from 'ionicons/icons';
 import HomePage from './pages/HomePage';
 import Tickets from './pages/Tickets';
@@ -56,7 +56,7 @@ const App: React.FC = () =>
 			{globalStore.isLoading && <LoadingOverlay/>}
 			<ToastContainer/>
 
-			<IonReactRouter>
+			<IonReactHashRouter>
 				<IonTabs>
 					<IonRouterOutlet>
 						<Route exact path="/tab1">
@@ -90,7 +90,7 @@ const App: React.FC = () =>
 						</IonTabButton>
 					</IonTabBar>
 				</IonTabs>
-			</IonReactRouter>
+			</IonReactHashRouter>
 		</IonApp>
 	);
 }

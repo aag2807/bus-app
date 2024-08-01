@@ -71,7 +71,7 @@ const TripSearchForm: React.FC<TTripSearchFormProps> = ( props ) =>
 						<label htmlFor="">Cantidad</label>
 						<div className={"relative"}>
 							<FaUserGroup className={"absolute left-[5px] top-[28%] text-[20px]"} />
-							<input {...register( "passengers" )} type="number" className={"bg-transparent border-b border-white min-h-[45px] font-bold indent-8"} min={1}/>
+							<input {...register( "passengers" )} type="number" className={"max-w-[145px] bg-transparent border-b border-white min-h-[45px] font-bold indent-8"} min={1}/>
 						</div>
 					</div>
 
