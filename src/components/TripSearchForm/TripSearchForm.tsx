@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import './TripSearchForm.css';
 import {useForm} from "react-hook-form";
-import {useSnapshot} from "valtio";
-import {GlobalStore, IGlobalStore} from "../../state/global.store";
+import {GlobalStore} from "../../state/global.store";
 import {FaUserGroup} from "react-icons/fa6";
 
 type TTripSearchFormProps = {}

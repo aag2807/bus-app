@@ -12,11 +12,9 @@ import {HomePageStore, IHomePageStore} from "../state/home-page/home-page.store"
 
 const HomePage: React.FC = () =>
 {
-	const store = useSnapshot<IHomePageStore>( HomePageStore );
-
 	return (
 		<IonPage>
-			<IonContent fullscreen class={"min-h-full min-w-full flex flex-col"}>
+			<IonContent fullscreen class={"min-w-full flex flex-col"}>
 				<div className="bg-[#08387f] flex-1 min-h-screen min-w-screen px-6 text-white pt-4">
 					<TitleBar title={"Agenda tu viaje <br/> con nosotros"} showBackButton={false}/>
 					<Categories onCategoryChange={( value ) => console.log( value )}/>

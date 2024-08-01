@@ -1,5 +1,14 @@
 import {Redirect, Route} from 'react-router-dom';
-import {IonApp, IonIcon, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact} from '@ionic/react';
+import {
+	createAnimation,
+	IonApp,
+	IonIcon,
+	IonRouterOutlet,
+	IonTabBar,
+	IonTabButton,
+	IonTabs,
+	setupIonicReact
+} from '@ionic/react';
 import {IonReactRouter} from '@ionic/react-router';
 import {bus, home, person} from 'ionicons/icons';
 import HomePage from './pages/HomePage';
@@ -39,6 +48,7 @@ import './theme/overrides.css';
 import {useSnapshot} from "valtio";
 import {GlobalStore, IGlobalStore} from "./state/global.store";
 import LoadingOverlay from "./components/LoadingOverlay";
+import {TicketDetail} from "./pages/TicketDetail";
 
 setupIonicReact();
 
@@ -52,15 +62,11 @@ const App: React.FC = () =>
 			<IonReactRouter>
 				<IonTabs>
 					<IonRouterOutlet>
-						<Route exact path="/tab1">
-							<HomePage/>
-						</Route>
-						<Route exact path="/tab2">
-							<Tickets/>
-						</Route>
-						<Route path="/tab3">
-							<UserOptions/>
-						</Route>
+						<Route exact path="/tab1" component={HomePage}/>
+						<Route exact path="/tab2" component={Tickets}/>
+						<Route path="/tab3" component={UserOptions}/>
+						<Route path="/detail/:index" component={TicketDetail}/>
+
 						<Route exact path="/">
 							<Redirect to="/tab1"/>
 						</Route>

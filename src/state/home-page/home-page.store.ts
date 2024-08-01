@@ -1,7 +1,7 @@
 //@ts-ignore
 import {proxy} from 'valtio'
 
-enum TripType
+export enum TripType
 {
 	ONE_WAY = 1,
 	ROUND_TRIP = 2
