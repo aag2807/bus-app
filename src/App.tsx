@@ -1,19 +1,9 @@
 import {Redirect, Route} from 'react-router-dom';
-import {
-	IonApp,
-	IonIcon,
-	IonRouterOutlet,
-	IonTabBar,
-	IonTabButton,
-	IonTabs,
-	IonToast,
-	setupIonicReact
-} from '@ionic/react';
+import {IonApp, IonIcon, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact} from '@ionic/react';
 import {IonReactRouter} from '@ionic/react-router';
 import {bus, home, person} from 'ionicons/icons';
 import HomePage from './pages/HomePage';
 import Tickets from './pages/Tickets';
-import UserOptions from './pages/UserOptions';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -53,6 +43,7 @@ import PaymentForm from "./pages/PaymentForm";
 import React from "react";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import UserProfile from "./pages/user/UserProfile";
 
 setupIonicReact();
 
@@ -63,7 +54,7 @@ const App: React.FC = () =>
 	return (
 		<IonApp className={"relative z-[1]"}>
 			{globalStore.isLoading && <LoadingOverlay/>}
-			<ToastContainer />
+			<ToastContainer/>
 
 			<IonReactRouter>
 				<IonTabs>
@@ -75,7 +66,7 @@ const App: React.FC = () =>
 							<Tickets/>
 						</Route>
 						<Route path="/tab3">
-							<UserOptions/>
+							<UserProfile/>
 						</Route>
 						<Route path="/detail/:index">
 							<TicketDetail/>
