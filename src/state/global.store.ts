@@ -5,4 +5,6 @@ export interface IGlobalStore {
 	isLoading: boolean;
 }
 
-export const GlobalStore = proxy( {isLoading: false} )
+export const GlobalStore = proxy( {
+	isLoading: false,
+} )

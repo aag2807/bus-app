@@ -21,8 +21,8 @@ const TitleBar: React.FC<TitleBarProps> = ( props ) =>
 			}
 
 			{props.showBackButton ?
-				<h4 className={"text-white text-[24px] font-[600] ms-[20px] my-0 me-0 t"}>{props.title}</h4> :
-				<h4 className={"text-white text-[26px] font-[600] my-0 me-0 t"}>{props.title}</h4>
+				<h4 className={"text-white text-[24px] font-[600] ms-[20px] my-0 me-0 t"} dangerouslySetInnerHTML={{__html: props.title}}></h4> :
+				<h4 className={"text-white text-[28px] font-[600] my-0 me-0 t"} dangerouslySetInnerHTML={{__html: props.title}}></h4>
 			}
 		</div>
 	);

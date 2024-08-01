@@ -3,6 +3,7 @@ import './TripSearchForm.css';
 import {useForm} from "react-hook-form";
 import {useSnapshot} from "valtio";
 import {GlobalStore, IGlobalStore} from "../../state/global.store";
+import {FaUserGroup} from "react-icons/fa6";
 
 type TTripSearchFormProps = {}
 
@@ -69,7 +70,10 @@ const TripSearchForm: React.FC<TTripSearchFormProps> = ( props ) =>
 
 					<div className="flex flex-col gap-3">
 						<label htmlFor="">Cantidad</label>
-						<input {...register( "passengers" )} type="number" className={"bg-transparent border-b border-white min-h-[45px] font-bold"} min={1}/>
+						<div className={"relative"}>
+							<FaUserGroup className={"absolute left-[5px] top-[28%] text-[20px]"} />
+							<input {...register( "passengers" )} type="number" className={"bg-transparent border-b border-white min-h-[45px] font-bold indent-8"} min={1}/>
+						</div>
 					</div>
 
 				</div>
