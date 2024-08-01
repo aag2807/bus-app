@@ -1,4 +1,4 @@
-import {IonContent, IonPage} from '@ionic/react';
+import {IonContent, IonPage, useIonRouter} from '@ionic/react';
 import './Tickets.css';
 import TitleBar from "../components/TitleBar";
 import React from "react";
@@ -13,13 +13,14 @@ export function formatDate( date: string )
 	return dayjs( date ).format( 'DD-MMM-YYYY' );
 }
 
-const Tickets: React.FC<any> = ( {history} ) =>
+const Tickets: React.FC<any> = ( ) =>
 {
+	const router = useIonRouter();
 	const store = useSnapshot<ITicketsStore>( TicketStore );
 
 	const navigate = ( index: number ) =>
 	{
-		history.push('/detail/' + index );
+		router.push('/detail/' + index );
 	}
 
 	return (

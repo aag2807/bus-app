@@ -1,15 +1,20 @@
 import TitleBar from "../components/TitleBar";
 import React, {useEffect} from "react";
-import {IonContent, IonPage} from "@ionic/react";
+import {IonContent, IonPage, useIonRouter} from "@ionic/react";
 import {useSnapshot} from "valtio";
 import {ITicketsStore, TicketStore} from "../state/tickets/tickets.store";
 import {motion} from "framer-motion";
 import {Controller, useForm} from "react-hook-form";
 import {FaUserGroup} from "react-icons/fa6";
 import {formatDate} from "./Tickets";
+import {useParams} from "react-router";
+import {PaymentState} from "../state/payment/payment.store";
 
-export const TicketDetail: React.FC<any> = ( {match} ) =>
+export const TicketDetail: React.FC<any> = () =>
 {
+	const router = useIonRouter();
+	const {index} = useParams<{index: string}>();
+
 	const {register, handleSubmit, control, watch} = useForm( {
 		defaultValues: {
 			passengers: 1,
@@ -18,13 +23,15 @@ export const TicketDetail: React.FC<any> = ( {match} ) =>
 	} );
 	const passengers = watch( "passengers" );
 
-	const index = match.params.index;
+	const routeIndex = parseInt( index );
+
 	const store = useSnapshot<ITicketsStore>( TicketStore );
-	const ticket = store.tickets[index];
+	const ticket = store.tickets[routeIndex];
 
 	const onSubmit = ( data: any ) =>
 	{
-		console.log( data );
+		PaymentState.ticketToPay = ticket;
+		router.push( `/payment-form?passengers=${data.passengers}` );
 	}
 
 	return (

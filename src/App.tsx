@@ -1,12 +1,12 @@
 import {Redirect, Route} from 'react-router-dom';
 import {
-	createAnimation,
 	IonApp,
 	IonIcon,
 	IonRouterOutlet,
 	IonTabBar,
 	IonTabButton,
 	IonTabs,
+	IonToast,
 	setupIonicReact
 } from '@ionic/react';
 import {IonReactRouter} from '@ionic/react-router';
@@ -49,6 +49,10 @@ import {useSnapshot} from "valtio";
 import {GlobalStore, IGlobalStore} from "./state/global.store";
 import LoadingOverlay from "./components/LoadingOverlay";
 import {TicketDetail} from "./pages/TicketDetail";
+import PaymentForm from "./pages/PaymentForm";
+import React from "react";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 setupIonicReact();
 
@@ -59,19 +63,30 @@ const App: React.FC = () =>
 	return (
 		<IonApp className={"relative z-[1]"}>
 			{globalStore.isLoading && <LoadingOverlay/>}
+			<ToastContainer />
+
 			<IonReactRouter>
 				<IonTabs>
 					<IonRouterOutlet>
-						<Route exact path="/tab1" component={HomePage}/>
-						<Route exact path="/tab2" component={Tickets}/>
-						<Route path="/tab3" component={UserOptions}/>
-						<Route path="/detail/:index" component={TicketDetail}/>
-
+						<Route exact path="/tab1">
+							<HomePage/>npm i @react-input/mask
+						</Route>
+						<Route exact path="/tab2">
+							<Tickets/>
+						</Route>
+						<Route path="/tab3">
+							<UserOptions/>
+						</Route>
+						<Route path="/detail/:index">
+							<TicketDetail/>
+						</Route>
+						<Route path="/payment-form">
+							<PaymentForm/>
+						</Route>
 						<Route exact path="/">
 							<Redirect to="/tab1"/>
 						</Route>
 					</IonRouterOutlet>
-
 					<IonTabBar slot="bottom" className={"mb-[20px] mt-[10px] mx-[20px] rounded-full py-4 bg-white"}>
 						<IonTabButton tab="tab1" href="/tab1" className={"flex ion-align-items-center min-h-[60px] bg-white"}>
 							<IonIcon aria-hidden="true" icon={home} size={'small'}/>
