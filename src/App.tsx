@@ -60,7 +60,7 @@ const App: React.FC = () =>
 				<IonTabs>
 					<IonRouterOutlet>
 						<Route exact path="/tab1">
-							<HomePage/>npm i @react-input/mask
+							<HomePage/>
 						</Route>
 						<Route exact path="/tab2">
 							<Tickets/>
