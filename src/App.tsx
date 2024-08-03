@@ -78,7 +78,7 @@ const App: React.FC = () =>
 							<Redirect to="/tab1"/>
 						</Route>
 					</IonRouterOutlet>
-					<IonTabBar slot="bottom" className={"mb-[20px] mt-[10px] mx-[20px] rounded-full py-4 bg-white"}>
+					<IonTabBar slot="bottom" className={"mb-[20px] mx-[20px] rounded-full py-4 bg-white"}>
 						<IonTabButton tab="tab1" href="/tab1" className={"flex ion-align-items-center min-h-[60px] bg-white"}>
 							<IonIcon aria-hidden="true" icon={home} size={'small'}/>
 						</IonTabButton>
